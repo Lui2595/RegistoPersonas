@@ -1,15 +1,8 @@
 <?php 
     header('Content-Type: application/json; charset=utf-8');
-    // MySQLi configuration
-    $servername = "localhost"; // Change this to your MySQL server address
-    $username = "root"; // Change this to your MySQL username
-    $password = ""; // Change this to your MySQL password
-    $database = "detector_facial"; // Change this to your MySQL database name
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    // Check connection
+    
+    include("config.php");
+    // Check connectio"n
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
