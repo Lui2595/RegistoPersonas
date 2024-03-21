@@ -116,6 +116,7 @@
     }
 
     if(isset($_GET["action"])) {
+        $response = ["status" => 0, "data" => [], "message" => ""];
         switch ($_GET["action"]) {
             case 'get':
                 // Example query
