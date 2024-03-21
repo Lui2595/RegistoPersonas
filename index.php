@@ -1,3 +1,10 @@
+<?php 
+ session_start();
+ if(!isset($_SESSION["user"])) {
+    header("Location:login.php");
+ }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +24,9 @@
             margin: 0;
             padding: 0;
         }
-
+        .panel-detector {
+            max-width: 100%;
+        }
         video {
             position: absolute;
             z-index: 1;
@@ -56,13 +65,14 @@
     <nav class="navbar navbar-light bg-black w-100 mb-4">
             <div class="container-fluid">
                 <span class="navbar-brand mb-0 h1 text-light">Registro de entregas</span>
+                <a href="exit.php" class="nav-link text-light">Salir</a>
             </div>
         </nav>
     <div class="container">
        
         <div style="position: relative">
-            <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline></video>
-            <canvas id="overlay">
+            <video onloadedmetadata="onPlay(this)" id="inputVideo" autoplay muted playsinline class="panel-detector"></video>
+            <canvas id="overlay" class="panel-detector">
         </div>
         <div class="d-flex justify-content-center gap-4">
             <select id="cameraSelect" class="form-select" onchange="changeCamera(this)">
